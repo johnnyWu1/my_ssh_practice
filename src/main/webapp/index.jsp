@@ -25,15 +25,14 @@
 		</div>
 	</div>
 </div>
-
-<form action="frame.html" method="post">
+<s:form action="employee_login" method="post" namespace="/">
 <div class="loginBox">
 	<div class="login_cont">
 		<ul class="login">
 			<li class="l_tit">用户名</li>
-			<li class="mb_10"><input type="text" class="login_input user_icon"></li>
+			<li class="mb_10"><input type="text" name="username" class="login_input user_icon"></li>
 			<li class="l_tit">密码</li>
-			<li class="mb_10"><input type="text" class="login_input user_icon"></li>
+			<li class="mb_10"><input type="text" name="password" class="login_input user_icon"></li>
 			
 			<li><input type="submit" value="" class="login_btn"></li>
 		</ul>
@@ -56,8 +55,7 @@
 	</div>
 	
 </div>
-</form>
-
+</s:form>
 <div class="hr_25"></div>
 <div class="footer">
 	<p><a href="#">慕课简介</a><i>|</i><a href="#">慕课公告</a><i>|</i> <a href="#">招纳贤士</a><i>|</i><a href="#">联系我们</a><i>|</i>客服热线：400-675-1234</p>

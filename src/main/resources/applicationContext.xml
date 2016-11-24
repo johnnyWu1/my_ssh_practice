@@ -17,12 +17,20 @@ http://www.springframework.org/schema/tx/spring-tx.xsd
 ">
 
 	<!-- 配置Struts Action类 Bean, Scope为Prototype -->
-
-
-	<!-- 配置Service类 Bean -->
+	<bean id="employeeAction" class="com.employee.action.EmployeeAction" scope="prototype">
+		<property name="employeeService" ref="employeeService"></property>
+	</bean>
 	
 
+	<!-- 配置Service类 Bean -->
+	<bean id="employeeService" class="com.employee.service.impl.EmployeeServiceImpl">
+		<property name="employeeDao" ref="employeeDao"></property>
+	</bean>
+
 	<!-- 配置DAO类 Bean -->
+	<bean id="employeeDao" class="com.employee.dao.impl.EmployeeDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
 	
 	<!-- 配置连接池属性 -->
 	<context:property-placeholder location="classpath:jdbc.properties" />
@@ -47,7 +55,7 @@ http://www.springframework.org/schema/tx/spring-tx.xsd
 				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
 				<prop key="hibernate.show_sql">true></prop>
 				<prop key="hibernate.format_sql">true</prop>
-				<prop key="hibernate.hbm2ddl.auto">create</prop>
+				<prop key="hibernate.hbm2ddl.auto">update</prop>
 				
 			</props>
 		</property>
