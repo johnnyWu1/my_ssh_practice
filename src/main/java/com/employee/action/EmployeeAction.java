@@ -2,6 +2,7 @@ package com.employee.action;
 
 import com.employee.domain.Employee;
 import com.employee.service.EmployeeService;
+import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 
@@ -36,7 +37,17 @@ public class EmployeeAction extends ActionSupport implements ModelDriven<Employe
 	public String login(){
 		
 		System.out.println("login执行了。。。。");
-		return NONE;
+		//调用业务层方法
+		Employee existEmployee = employeeService.login(employee);
+		if(existEmployee == null){
+			//登录失败
+			this.addActionError("用户名或密码错误！");
+			return INPUT;
+		}else{
+			//登录成功
+			ActionContext.getContext().getSession().put("existEmployee", existEmployee);
+			return SUCCESS;
+		}
 	}
 
 	

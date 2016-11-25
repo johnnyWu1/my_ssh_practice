@@ -20,15 +20,23 @@ http://www.springframework.org/schema/tx/spring-tx.xsd
 	<bean id="employeeAction" class="com.employee.action.EmployeeAction" scope="prototype">
 		<property name="employeeService" ref="employeeService"></property>
 	</bean>
-	
+	<bean id="departmentAction" class="com.employee.action.DepartmentAction" scope="prototype">
+		<property name="departmentService" ref="departmentService"></property>
+	</bean>
 
 	<!-- 配置Service类 Bean -->
 	<bean id="employeeService" class="com.employee.service.impl.EmployeeServiceImpl">
 		<property name="employeeDao" ref="employeeDao"></property>
 	</bean>
+	<bean id="departmentService" class="com.employee.service.impl.DepartmentServiceImpl">
+		<property name="departmentDao" ref="departmentDao"></property>
+	</bean>
 
 	<!-- 配置DAO类 Bean -->
 	<bean id="employeeDao" class="com.employee.dao.impl.EmployeeDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="departmentDao" class="com.employee.dao.impl.DepartmentDaoImpl">
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
 	
