@@ -15,7 +15,6 @@ public class EmployeeAction extends ActionSupport implements ModelDriven<Employe
 	//模型驱动使用的对象
 	private Employee employee = new Employee();
 	
-	@Override
 	public Employee getModel() {
 		return employee;
 	}

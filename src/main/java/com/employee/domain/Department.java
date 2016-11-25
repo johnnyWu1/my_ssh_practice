@@ -9,7 +9,7 @@ public class Department {
 	private String dname;
 	private String ddesc;
 	
-	private Set<Employee> employees = new HashSet<>();
+	private Set<Employee> employees = new HashSet();
 	public Integer getDid() {
 		return did;
 	}
